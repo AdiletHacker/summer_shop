@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:summe_shop/models/Product.dart';
 import 'package:summe_shop/widgets/catalog.dart';
@@ -23,6 +24,8 @@ class HomePage extends StatelessWidget {
             )),
         child: ListView(
           padding: EdgeInsets.all(10),
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
           children: [
             Container(
               child: ListTile(
@@ -34,7 +37,7 @@ class HomePage extends StatelessWidget {
                   "Больше чем сто видов коктелей",
                   style: TextStyle(fontSize: 16),
                 ),
-                trailing: Icon(Icons.panorama_horizontal),
+                trailing: Icon(Icons.add_comment_outlined),
               ),
             ),
             Container(

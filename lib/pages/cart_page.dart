@@ -19,6 +19,7 @@ class CartPage extends StatelessWidget {
               child: Container(
                 height: 100,
                 width: double.infinity,
+                alignment: Alignment.center,
                 child: Text(
                   "Кoрзина пуста",
                   style: TextStyle(fontSize: 20),

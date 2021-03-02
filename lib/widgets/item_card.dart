@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summe_shop/models/Cart.dart';
 import 'package:summe_shop/models/Product.dart';
+import 'package:summe_shop/pages/item_page.dart';
 
 class ItemCard extends StatelessWidget {
   @override
@@ -20,7 +21,15 @@ class ItemCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           GestureDetector(
-            onTap: () => null,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ItemPage(
+                    productId: product.id,
+                  ),
+                ),
+              );
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:summe_shop/models/Cart.dart';
 import 'package:summe_shop/pages/cart_page.dart';
 import 'package:provider/provider.dart';
+import 'package:summe_shop/pages/item_page.dart';
 
 class BottomBar extends StatelessWidget {
   @override
@@ -28,7 +29,17 @@ class BottomBar extends StatelessWidget {
                   itemBuilder: (context, index) => Hero(
                         tag: cartItems.values.toList()[index].imgUrl,
                         child: GestureDetector(
-                          onTap: null,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ItemPage(
+                                    productId: cartItems.keys.toList()[index],
+                                  );
+                                },
+                              ),
+                            );
+                          },
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -43,7 +54,7 @@ class BottomBar extends StatelessWidget {
                                       color: Colors.black54,
                                       blurRadius: 4,
                                       spreadRadius: 5,
-                                      offset: Offset(-2, 2),
+                                      offset: Offset(2, 2),
                                     )
                                   ],
                                   image: DecorationImage(

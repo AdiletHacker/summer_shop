@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summe_shop/models/Cart.dart';
+import 'package:summe_shop/pages/item_page.dart';
 
 class CartItem extends StatelessWidget {
   final cartData;
@@ -13,7 +14,16 @@ class CartItem extends StatelessWidget {
     return Container(
       child: ListTile(
         leading: InkWell(
-          onTap: null,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return ItemPage(
+                      productId: cartData.cartItems.keys.toList()[index]);
+                },
+              ),
+            );
+          },
           child: Container(
             width: 50,
             height: 50,
