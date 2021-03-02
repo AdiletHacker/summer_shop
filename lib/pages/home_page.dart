@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summe_shop/models/Product.dart';
+import 'package:summe_shop/widgets/catalog.dart';
 import 'package:summe_shop/widgets/item_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -52,7 +53,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
             ),
             ...productData.items.map((item) {
-              return CatalogListTile(item.imgUrl);
+              return CatalogListTile(imgUrl: item.imgUrl);
             }).toList()
           ],
         ),
