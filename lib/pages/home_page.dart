@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:summe_shop/models/Product.dart';
 import 'package:summe_shop/widgets/catalog.dart';
 import 'package:summe_shop/widgets/item_card.dart';
+import 'package:summe_shop/widgets/bottom_bar.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       )),
-      // !- Bottom Bar
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

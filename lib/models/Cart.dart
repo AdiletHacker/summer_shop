@@ -55,6 +55,39 @@ class CartDataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateItemsAddOne(String productId) {
+    _cartItems.update(
+      productId,
+      (ex) => Cart(
+        id: ex.id,
+        title: ex.title,
+        price: ex.price,
+        imgUrl: ex.imgUrl,
+        number: ex.number + 1,
+      ),
+    );
+    notifyListeners();
+  }
+
+  // Обновить корзину на -1 единицу товара по id
+  void updateItemsSubOne(String productId) {
+    if (_cartItems[productId].number < 2) {
+      deleteItem(productId);
+    } else {
+      _cartItems.update(
+        productId,
+        (ex) => Cart(
+          id: ex.id,
+          title: ex.title,
+          price: ex.price,
+          imgUrl: ex.imgUrl,
+          number: ex.number - 1,
+        ),
+      );
+    }
+    notifyListeners();
+  }
+
   void deleteItem(String productId) {
     _cartItems.remove(productId);
     notifyListeners();
